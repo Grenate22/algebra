@@ -1,4 +1,4 @@
-import re
+import re, math
 
 class MathOperationChecker:
     def __init__(self, text):
@@ -50,9 +50,19 @@ class Algebra :
                          product = digit[0] * digit[1]
                          result.append(product)
                 return result 
+    
+    def quad (self,a,b,c):
+        try:
+            first = ((-b + (math.sqrt((b**b)-4*a*c)))/(2*a))
+            second = ((-b - (math.sqrt((b**b)-4*a*c)))/(2*a))
+            result = f"{first} or {second}"
+            return result
+        except ValueError as ex:
+             return ex
 
 text1 = Algebra()
-print(text1.calc("Find the sum and product  10 and 7"))
-
+print(text1.calc("Find the sum   10 and 7"))
+print(text1.quad(a=1,b=2,c=-35))
+print(text1.quad(a=8,b=2,c=-3))
 
         
